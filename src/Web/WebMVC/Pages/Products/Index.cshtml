@@ -1,0 +1,58 @@
+﻿@page
+@model WebMVC.Pages.Products.Index
+
+<a asp-page="Create" class="btn btn-success">
+    Create
+</a>
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Substance</th>
+            <th scope="col">Country</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var jewelry in Model.Jewelries)
+        {
+            <tr>
+                <td>@jewelry.Name</td>
+                <td>@jewelry.Substance</td>
+                <td>@jewelry.Country</td>
+                <td>@jewelry.Price</td>
+                <td>
+                    <a asp-page="Update" asp-route-id="@jewelry.Id" class="btn btn-warning">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a onclick="deleteJewelry(@jewelry.Id)" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts
+    {
+    <script>
+        async function deleteJewelry(id) {
+            const result = await Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                cancelButtonColor: "#3085d6",
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Yes",
+            });
+
+            if (result.isConfirmed) {
+                window.location.href = `/Products/Delete/${id}`;
+            }
+        }
+    </script>
+}

@@ -1,0 +1,14 @@
+﻿global using AutoMapper;
+global using Baskets.API.DTOs;
+global using Baskets.API.Extensions;
+global using Baskets.API.Infrastructure;
+global using Baskets.API.Models;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.IdentityModel.Tokens;
+global using Serilog;
+global using Serilog.Events;
+global using Serilog.Sinks.SystemConsole.Themes;
+global using System.Text.Json.Serialization;

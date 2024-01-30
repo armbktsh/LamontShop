@@ -1,0 +1,39 @@
+﻿@page
+@model WebMVC.Pages.Products.Create
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input asp-for="InputModel.Name" type="text" class="form-control" id="name">
+        <span asp-validation-for="InputModel.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input asp-for="InputModel.Price" class="form-control" id="price">
+        <span asp-validation-for="InputModel.Price" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input asp-for="InputModel.Country" class="form-control" id="country">
+        <span asp-validation-for="InputModel.Country" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="substance" class="form-label">Substance</label>
+        <input asp-for="InputModel.Substance" class="form-control" id="substance">
+        <span asp-validation-for="InputModel.Substance" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input asp-for="InputModel.Image" class="form-control" type="file" id="image">
+        <span asp-validation-for="InputModel.Image" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

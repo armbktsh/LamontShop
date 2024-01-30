@@ -1,0 +1,16 @@
+﻿global using AutoMapper;
+global using FluentValidation;
+global using MediatR;
+global using Products.Application.Features.Jewelries.Commands.Common;
+global using Microsoft.Extensions.DependencyInjection;
+global using Products.Application.Common.Contracts.Persistence;
+global using Products.Application.Common.Exceptions;
+global using Products.Application.Features.Jewelries.Commands.CreateJewelry;
+global using Products.Application.Features.Jewelries.Commands.DeleteJewelry;
+global using Products.Application.Features.Jewelries.Commands.UpdateJewelry;
+global using Products.Application.Features.Jewelries.Queries.GetJewelryDetail;
+global using Products.Application.Features.Jewelries.Queries.GetJewelryList;
+global using Products.Domain.Entities;
+global using System.Reflection;
+global using Products.Application.Common.Behaviours;
+global using Microsoft.AspNetCore.Http;

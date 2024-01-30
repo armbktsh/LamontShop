@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin Panel</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css" />
+</head>
+<body>
+
+    <div class="row">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark col-3" style="height: 100vh;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <span class="fs-4 px-2">Admin Panel</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li>
+                    <a href="/" class="nav-link text-white active">
+                        <i class="fa fa-dashboard"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/Products/Index" class="nav-link text-white">
+                        <i class="fa fa-square"></i>
+                        Products
+                    </a>
+                </li>
+                <li>
+                    <a href="/Categories/Index" class="nav-link text-white">
+                        <i class="fa fa-list-dots"></i>
+                        Categories
+                    </a>
+                </li>
+                <li> 
+                   <a href="#" class="nav-link text-white"> 
+                     <i class="fa fa-users"></i> 
+                     Users
+                   </a> 
+                 </li> 
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a style="cursor:pointer" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown">
+                    <img src="~/images/admin/admin.svg" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong>@User.FindFirst("given_name").Value</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    @*<li><hr class="dropdown-divider"></li>*@
+                    <li><a class="dropdown-item" asp-page="/SignOut">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <main class="col p-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="~/lib/chartjs/dist/chart.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        $(function() {
+            $('.nav').find('.active').removeClass('active');
+
+            $('.nav-link').toArray().forEach((element) => {
+                if (element.attributes.href.nodeValue === window.location.pathname) {
+                    element.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

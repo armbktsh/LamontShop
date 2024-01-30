@@ -1,0 +1,53 @@
+﻿@page
+@model WebMVC.Pages.Categories.Index
+
+<a asp-page="Create" class="btn btn-success">
+    Create
+</a>
+
+<table class="table align-middle">
+    <thead>
+    <tr>
+        <th scope="col">Title</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var category in Model.Categories)
+    {
+        <tr>
+            <td>@category.Title</td>
+           
+            <td>
+                <a asp-page="Update" asp-route-id="@category.Id" class="btn btn-warning">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a onclick="deleteCategory(@category.Id)" class="btn btn-danger">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section Scripts
+{
+    <script>
+        async function deleteCategory(id) {
+          const result = await Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            cancelButtonColor: "#3085d6",
+            confirmButtonColor: "#d33",
+            confirmButtonText: "Yes",
+          });
+        
+          if (result.isConfirmed) {
+            window.location.href = `/Categories/Delete/${id}`;
+          }
+        }
+    </script>
+}

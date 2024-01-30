@@ -1,0 +1,13 @@
+global using AutoMapper;
+global using Categories.API.DTOs;
+global using Categories.API.Extensions;
+global using Categories.API.Infrastructure;
+global using Categories.API.Infrastructure.EntityConfiguration;
+global using Categories.API.Models;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Serilog;
+global using Serilog.Events;
+global using Serilog.Sinks.SystemConsole.Themes;
+global using System.ComponentModel.DataAnnotations;

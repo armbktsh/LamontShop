@@ -1,0 +1,17 @@
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.IdentityModel.Tokens;
+global using Serilog;
+global using Serilog.Events;
+global using Serilog.Sinks.SystemConsole.Themes;
+global using System.Security.Claims;
+global using Products.Application;
+global using Products.Infrastructure;
+global using MediatR;
+global using Microsoft.AspNetCore.Authorization;
+global using Products.Application.Features.Jewelries.Commands.CreateJewelry;
+global using Products.Application.Features.Jewelries.Commands.DeleteJewelry;
+global using Products.Application.Features.Jewelries.Commands.UpdateJewelry;
+global using Products.Application.Features.Jewelries.Queries.GetJewelryDetail;
+global using Products.Application.Features.Jewelries.Queries.GetJewelryList;
+global using System.ComponentModel.DataAnnotations;
+global using Products.Application.Common.Contracts.Infrastrucutre;

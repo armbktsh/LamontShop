@@ -1,0 +1,21 @@
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">@Model.ExceptionMessage</h2>
+
+@section Scripts
+{
+    <script>
+        $(async function() {
+            await Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: '@Model.ExceptionMessage',
+            });
+        });
+    </script>
+}

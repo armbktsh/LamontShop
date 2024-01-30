@@ -1,0 +1,20 @@
+﻿@page "{id}"
+@model WebMVC.Pages.Categories.Update
+
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="InputModel.Id">
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input asp-for="InputModel.Title" type="text" class="form-control">
+        <span asp-validation-for="InputModel.Title" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
